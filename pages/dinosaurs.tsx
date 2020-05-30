@@ -1,6 +1,7 @@
 import React from "react";
 
 import { GetStaticProps } from "next";
+import { Button, Grid } from "@material-ui/core";
 
 import { Dinosaur } from "../interfaces/dinosaur";
 import { dinosaurs } from "../utils/dinosaurs-data";
@@ -16,10 +17,6 @@ const WithStaticProps = ({ items }: Props) => {
   const handleNext = () => {
     const newIndex = activeIndex + 1;
 
-    console.log({
-      newIndex,
-      s: items.length,
-    });
     if (newIndex <= items.length - 1) {
       setIndex(activeIndex + 1);
     }
@@ -33,10 +30,26 @@ const WithStaticProps = ({ items }: Props) => {
 
   return (
     <Layout title="Dinosaurs">
-      <h1 style={{ fontSize: "30vmin" }}>{items[activeIndex].name}</h1>
+      <Grid item xs>
+        <h1 style={{ fontSize: "20vmin" }}>{items[activeIndex].name}</h1>
+      </Grid>
 
-      <button onClick={handlePrevious}>Back</button>
-      <button onClick={handleNext}>Next</button>
+      <Grid
+        item
+        xs
+        container
+        justify="space-between"
+        alignItems="flex-end"
+        direction="row"
+      >
+        <Grid item>
+          <Button onClick={handlePrevious}>Back</Button>
+        </Grid>
+
+        <Grid item>
+          <Button onClick={handleNext}>Next</Button>
+        </Grid>
+      </Grid>
     </Layout>
   );
 };

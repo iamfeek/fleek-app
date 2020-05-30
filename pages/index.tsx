@@ -1,14 +1,15 @@
-import Link from "next/link";
 import Layout from "../components/Layout";
+import { Grid } from "@material-ui/core";
 
 const IndexPage = () => (
   <Layout title="Home">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
+    <Grid item xs>
+      <h1>Welcome to Fleek</h1>
+    </Grid>
+
+    <Grid item xs>
+      Select a category
+    </Grid>
   </Layout>
 );
 
